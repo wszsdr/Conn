@@ -1,0 +1,29 @@
+﻿<Window x:Class="CnnApp.Execuwd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CnnApp"
+        mc:Ignorable="d"
+        Title="Execuwd" Height="450" Width="800">
+    <Grid>
+        <TreeView x:Name="FileList" ItemsSource="{Binding FilesLists}" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="767"  MouseDoubleClick="FileList_MouseDoubleClick">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:FileNodeModel}" ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding Name}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+
+        </TreeView>
+        <StackPanel Orientation="Horizontal" Margin="0,222,0,170">
+            <Button Content="执行" x:Name="ExecuteButton"   HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="ExecuteButton_Click"/>
+            <Button Content="解压" x:Name="DePressButton"   HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="DePressButton_Click"/>
+            <Button Content="删除" x:Name="ReMoveButton"   HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="ReMoveButton_Click"/>
+            <Button Content="取消运行" x:Name="StopButton" Visibility="Hidden"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" />
+        </StackPanel>
+
+
+        <TextBox x:Name="OutputTextBox"  VerticalAlignment="Top" Height="165" Margin="19,260,23,0"/>
+
+    </Grid>
+</Window>
